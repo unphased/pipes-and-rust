@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 version="$1"
-host="remarkable"
+host="root@remarkable.local"
 arch="armv7-unknown-linux-musleabihf"
 #arch="armv7-unknown-linux-gnueabihf"
 
@@ -16,7 +16,7 @@ echo "Done"
 # shellcheck disable=SC2181
 if [ $? -eq 0 ]; then
   echo "Killing last process..."
-  ssh remarkable "killall pipes-and-rust"
+  ssh $host "killall pipes-and-rust"
   echo "Done"
   echo "Copying to device..."
   scp "./target/$arch/$version/pipes-and-rust" "$host:/opt/pipes-and-rust" && echo "Done" && ssh "$host" "/opt/pipes-and-rust"

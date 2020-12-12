@@ -62,7 +62,7 @@ fn main() {
                             pressure = value
                         }
                         if let Err(value) =
-                            out.send(Message::text(format!("[{},{},{},{}", x, y, pressure, mode)))
+                            out.send(Message::text(format!("[{},{},{},{}]", x, y, pressure, mode)))
                         {
                             eprintln!("Error: {:?}", value);
                             return;
